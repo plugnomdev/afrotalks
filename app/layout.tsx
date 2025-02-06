@@ -37,6 +37,7 @@ export default function RootLayout({
               <a href="#" className="text-gray-600 hover:text-orange-600 transition">About</a>
               <a href="#" className="text-gray-600 hover:text-orange-600 transition">Events</a>
               <a href="#" className="text-gray-600 hover:text-orange-600 transition">Speakers</a>
+              <a href="#" className="text-gray-600 hover:text-orange-600 transition">Volunteers</a>
               <a href="#" className="text-gray-600 hover:text-orange-600 transition">Contact</a>
             </nav>
             <button className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition">
