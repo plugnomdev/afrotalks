@@ -1,13 +1,22 @@
+import { Inter } from 'next/font/google';
 import './globals.css';
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Plus_Jakarta_Sans, Playfair_Display } from 'next/font/google';
 import Image from 'next/image';
+import { FaTwitter, FaLinkedin, FaInstagram, FaFacebook, FaEnvelope } from 'react-icons/fa';
 
 const plusJakarta = Plus_Jakarta_Sans({ 
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-plus-jakarta'
 });
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair'
+});
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'AfroTalks 2025 - Amplifying African Voices',
@@ -20,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${plusJakarta.variable} font-sans`}>
+    <html lang="en" className={`${plusJakarta.variable} ${playfair.variable}`}>
+      <body className="font-sans">
         {/* Header */}
         <header className="fixed w-full z-50 bg-white border-b">
           <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -34,15 +43,20 @@ export default function RootLayout({
               priority
             />
             <nav className="hidden md:flex items-center gap-8">
-              <a href="#" className="text-gray-600 hover:text-orange-600 transition">About</a>
-              <a href="#" className="text-gray-600 hover:text-orange-600 transition">Events</a>
+              <a href="#our-purpose" className="text-gray-600 hover:text-orange-600 transition">About</a>
+              <a href="#dates" className="text-gray-600 hover:text-orange-600 transition">Dates</a>
               <a href="#" className="text-gray-600 hover:text-orange-600 transition">Speakers</a>
-              <a href="#" className="text-gray-600 hover:text-orange-600 transition">Volunteers</a>
-              <a href="#" className="text-gray-600 hover:text-orange-600 transition">Contact</a>
+              <a href="#meet-our-team" className="text-gray-600 hover:text-orange-600 transition">Team</a>
+              <a href="#contact" className="text-gray-600 hover:text-orange-600 transition">Contact</a>
             </nav>
-            <button className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition">
+            <a 
+              href="https://web.akwaaba.app/events/86c9cf10-ed73-4ef6-bde9-a221169ce26d"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition"
+            >
               Register
-            </button>
+            </a>
           </div>
         </header>
 
@@ -53,16 +67,6 @@ export default function RootLayout({
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid md:grid-cols-4 gap-8 mb-8">
               <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Image 
-                    src="/images/logo.png" 
-                    alt="AfroTalks Logo" 
-                    width={24} 
-                    height={24} 
-                    className="w-6 h-6"
-                  />
-                  <span className="font-bold text-xl text-white">AfroTalks</span>
-                </div>
                 <p className="text-sm">
                   Amplifying African voices and inspiring global change through powerful conversations and connections.
                 </p>
@@ -70,29 +74,34 @@ export default function RootLayout({
               <div>
                 <h3 className="font-semibold text-white mb-4">Quick Links</h3>
                 <ul className="space-y-2">
-                  <li><a href="#" className="hover:text-orange-600 transition">About Us</a></li>
-                  <li><a href="#" className="hover:text-orange-600 transition">Events</a></li>
+                  <li><a href="#our-purpose" className="hover:text-orange-600 transition">About</a></li>
+                  <li><a href="#dates" className="hover:text-orange-600 transition">Dates</a></li>
                   <li><a href="#" className="hover:text-orange-600 transition">Speakers</a></li>
-                  <li><a href="#" className="hover:text-orange-600 transition">Blog</a></li>
+                  <li><a href="#meet-our-team" className="hover:text-orange-600 transition">Team</a></li>
                 </ul>
               </div>
-              <div>
+              <div id="contact">
                 <h3 className="font-semibold text-white mb-4">Contact</h3>
                 <ul className="space-y-2">
-                  <li>Eko Convention Center</li>
-                  <li>Lagos, Nigeria</li>
-                  <li>info@afrotalks.com</li>
-                  <li>+234 123 456 7890</li>
+                  <li><FaEnvelope className="inline-block mr-2" /> hello@afrotalks.com</li>
                 </ul>
               </div>
               <div>
                 <h3 className="font-semibold text-white mb-4">Follow Us</h3>
-                <ul className="space-y-2">
-                  <li><a href="#" className="hover:text-orange-600 transition">Twitter</a></li>
-                  <li><a href="#" className="hover:text-orange-600 transition">LinkedIn</a></li>
-                  <li><a href="#" className="hover:text-orange-600 transition">Instagram</a></li>
-                  <li><a href="#" className="hover:text-orange-600 transition">Facebook</a></li>
-                </ul>
+                <div className="flex space-x-4">
+                  <a href="https://twitter.com/afrotalks" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-600 transition">
+                    <FaTwitter size={20} title="X (Twitter)" />
+                  </a>
+                  <a href="https://www.linkedin.com/company/afrotalks" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-600 transition">
+                    <FaLinkedin size={20} title="LinkedIn" />
+                  </a>
+                  <a href="https://www.instagram.com/afrotalks" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-600 transition">
+                    <FaInstagram size={20} title="Instagram" />
+                  </a>
+                  <a href="https://www.facebook.com/afrotalks" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-orange-600 transition">
+                    <FaFacebook size={20} title="Facebook" />
+                  </a>
+                </div>
               </div>
             </div>
             <div className="border-t border-gray-800 pt-8 text-center text-sm">

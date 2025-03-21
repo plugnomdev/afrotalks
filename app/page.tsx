@@ -73,9 +73,17 @@ export default function Home() {
     <AnimatePresence>
       <main className="min-h-screen bg-gray-950 text-gray-100">
         {/* Hero Section */}
-        <section className="relative h-[90vh] flex items-center justify-center bg-gradient-to-br from-gray-950 via-gray-900 to-orange-950">
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-orange-500/10 via-transparent to-transparent" />
+        <section className="relative h-screen flex items-center justify-center bg-black">
+          {/* Background image - will be replaced later */}
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/30 via-transparent to-transparent" />
+          
+          <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent" />
+          
+          <div className="absolute top-0 right-0 w-1/2 h-full opacity-50">
+            {/* Placeholder for the portrait image - will be replaced later */}
+            <div className="w-full h-full bg-gradient-to-l from-gray-800 to-transparent" />
+          </div>
+          
           <motion.div 
             initial="hidden"
             animate="visible"
@@ -84,41 +92,41 @@ export default function Home() {
           >
             <motion.div 
               variants={fadeIn}
-              className="inline-block animate-text-shimmer bg-clip-text text-transparent bg-[linear-gradient(110deg,#ff6b00,45%,#ffa07a,55%,#ff6b00)] bg-[length:250%_100%] mb-6"
+              className="mb-12"
             >
-              <h1 className="text-7xl font-bold tracking-tight">AfroTalks 2025</h1>
+              <h2 className="text-5xl md:text-6xl font-serif italic font-normal text-white mb-2">
+                "the fierce urgency of now"
+              </h2>
+              <div className="mt-8 text-center">
+                <p className="text-xl uppercase tracking-widest mb-1 text-white">DR. MARTIN LUTHER KING, JR.</p>
+                <p className="text-orange-500 text-lg">I have a Dream, 1963</p>
+              </div>
             </motion.div>
-            <motion.p 
-              variants={fadeIn}
-              className="text-2xl mb-10 text-gray-300 font-light tracking-wide"
+          </motion.div>
+          
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            className="absolute bottom-16 left-0 right-0 flex justify-center z-20"
+          >
+            <motion.a
+              href="https://web.akwaaba.app/events/86c9cf10-ed73-4ef6-bde9-a221169ce26d"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+              whileTap={{ scale: 0.95, transition: { duration: 0.2 } }}
+              className="group bg-gradient-to-br from-orange-500 to-orange-600 text-white px-8 py-4 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-orange-500/25 inline-flex items-center"
             >
-              Igniting the African Dream
-            </motion.p>
-            <motion.div 
-              variants={fadeIn}
-              className="flex gap-4 justify-center"
-            >
-              <motion.button
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                whileTap={{ scale: 0.95, transition: { duration: 0.2 } }}
-                className="group bg-gradient-to-br from-orange-500 to-orange-600 text-white px-8 py-4 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-orange-500/25"
-              >
-                Register Now
-                <ChevronRight className="inline ml-2 transition-transform group-hover:translate-x-1" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-                whileTap={{ scale: 0.95, transition: { duration: 0.2 } }}
-                className="px-8 py-4 rounded-lg border border-orange-500/20 text-orange-500 hover:bg-orange-500/10 transition-all duration-300 backdrop-blur-sm"
-              >
-                Learn More
-              </motion.button>
-            </motion.div>
+              Register Now
+              <ChevronRight className="inline ml-2 transition-transform group-hover:translate-x-1" />
+            </motion.a>
           </motion.div>
         </section>
 
         {/* Event Info */}
         <motion.section 
+          id="dates"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -127,9 +135,9 @@ export default function Home() {
         >
           <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-12">
             {[
-              { icon: Calendar, title: "Date & Time", details: ["March 15-17, 2025", "9:00 AM - 6:00 PM WAT"] },
-              { icon: MapPin, title: "Location", details: ["Eko Convention Center", "Lagos, Nigeria"] },
-              { icon: Mic2, title: "Speakers", details: ["30+ Industry Leaders", "From Across Africa"] }
+              { icon: Calendar, title: "Date & Time", details: ["May 05, 2025", "10:00 AM"] },
+              { icon: MapPin, title: "Location", details: ["UG School of Law", "Accra, Ghana"] },
+              { icon: Mic2, title: "Speakers", details: ["Distinguished African Voices,", "Thought Leaders & Innovators"] }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -154,6 +162,7 @@ export default function Home() {
 
         {/* About AfroTalks Section */}
         <motion.section
+          id="our-purpose"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -184,7 +193,7 @@ export default function Home() {
             >
               <span className="text-orange-500 text-sm font-medium tracking-wider uppercase mb-3 block">Our Purpose</span>
               <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-orange-600">
-                About AfroTalks
+                Igniting the African Dream
               </h2>
             </motion.div>
 
@@ -195,7 +204,7 @@ export default function Home() {
               >
                 <div className="bg-gray-900/40 backdrop-blur-sm p-8 rounded-2xl border border-gray-700/50 hover:border-orange-500/30 transition-colors duration-300">
                   <p className="text-lg text-gray-100 leading-relaxed">
-                    We are driven by a unified purpose to build a generational legacy by Spearheading
+                    The quest to ignite the African Dream starts by doing. We are driven by a unified purpose to build a generational legacy by Spearheading
                     Global Conversations, Igniting the African Dream, and Driving Impact Community
                     Projects.
                   </p>
@@ -265,6 +274,7 @@ export default function Home() {
 
         {/* Founder Section */}
         <motion.section
+          id="meet-our-team"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -326,8 +336,8 @@ export default function Home() {
                 
                 <div>
                   <h3 className="text-3xl font-bold text-white mb-2">The Founder's Story</h3>
-                  <p className="text-orange-500 text-lg">Have we achieved the African Dream?</p>
-                  <p className="text-gray-400 italic mt-1">Not Yet, Never or Hopefully</p>
+                  <p className="text-orange-500 text-lg">ACCRA GHANA</p>
+                  <p className="text-gray-400 italic mt-1">Have we achieved the African Dream? Not Yet, Never or Hopefully</p>
                 </div>
 
                 <div className="space-y-4">
@@ -335,17 +345,16 @@ export default function Home() {
                     <h4 className="text-orange-500 font-semibold mb-2">The Vision</h4>
                     <p className="text-gray-300 leading-relaxed">
                       Driven by the vision to actualize the African Dream, Bright Tenbil founded AfroTalks. 
-                      As the Founding Partner of Hyperlink Africa, he has dedicated a decade to creating 
-                      impactful experiences and fostering meaningful connections.
+                      Bright has impacted in the capacity as the Founding Partner of Hyperlink Africa and other 
+                      initiatives with a decade of experience in event management.
                     </p>
                   </div>
 
                   <div className="bg-gray-800/30 p-5 rounded-xl border border-gray-700">
                     <h4 className="text-orange-500 font-semibold mb-2">The Impact</h4>
                     <p className="text-gray-300 leading-relaxed">
-                      With a rich background in PR, Digital Marketing, and Law, Bright has curated about 10 TED 
-                      events in Ghana, working closely with TED West Africa and Global Citizen - Accra. His mission: 
-                      to ignite the African Dream through synergy.
+                      He has curated about 10 TEDx events in Ghana, affiliated to TEDx West Africa and Global Citizen - Accra. 
+                      With background in PR, Digital Marketing and Law, he is poised to ignite the African Dream through synergy.
                     </p>
                   </div>
                 </div>
@@ -364,10 +373,10 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
-          className="py-24 bg-gray-900"
+          className="py-16 bg-gray-900"
         >
           <div className="max-w-6xl mx-auto px-4">
-            <motion.div variants={fadeIn} className="text-center mb-16">
+            <motion.div variants={fadeIn} className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-orange-600">
                 Advisory Board
               </h2>
@@ -376,49 +385,67 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
-                  name: "Dr. Elizabeth Mensah",
-                  role: "Innovation Strategy",
-                  image: "/images/beatrice.jpg", // Using temporary image
-                  bio: "Former Tech Executive with 20+ years experience in African innovation"
+                  name: "Diallo Sumbry",
+                  role: "CEO, Adinkra Group",
+                  image: "/images/diallo.png"
                 },
                 {
-                  name: "Prof. Samuel Osei",
-                  role: "Academic Relations",
-                  image: "/images/beatrice.jpg", // Using temporary image
-                  bio: "Distinguished Professor of Technology and Innovation Studies"
+                  name: "Apiokor Seyiram",
+                  role: "Media Personality",
+                  image: "/images/apiokor.png"
                 },
                 {
-                  name: "Grace Kimani",
-                  role: "Community Development",
-                  image: "/images/beatrice.jpg", // Using temporary image
-                  bio: "Social Impact Leader and Community Building Expert"
+                  name: "Okyeame Kwame",
+                  role: "Musician",
+                  image: "/images/okyeame.png"
+                },
+                {
+                  name: "Gabriel Appiah",
+                  role: "Director, BTL Africa",
+                  image: "/images/gabriel.png"
                 }
               ].map((advisor, index) => (
                 <motion.div
                   key={index}
-                  variants={scaleIn}
-                  whileHover={{ 
-                    scale: 1.02,
-                    transition: { duration: 0.2 }
+                  variants={{
+                    hidden: { 
+                      opacity: 0, 
+                      y: 30,
+                      scale: 0.9,
+                      transition: { duration: 0.5 }
+                    },
+                    visible: { 
+                      opacity: 1, 
+                      y: 0,
+                      scale: 1,
+                      transition: { 
+                        duration: 0.5,
+                        delay: index * 0.15
+                      }
+                    }
                   }}
-                  className="bg-gray-800/50 rounded-xl p-6 flex flex-col items-center gap-4"
+                  whileHover={{ 
+                    y: -10,
+                    transition: { duration: 0.3, type: "spring", stiffness: 300 }
+                  }}
+                  className="rounded-xl p-4 flex flex-col items-center gap-3 relative group"
                 >
-                  <div className="relative w-32 h-32 flex-shrink-0">
+                  <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-orange-600/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative w-56 h-56 flex-shrink-0 overflow-hidden rounded-lg transition-all duration-300">
                     <Image
                       src={advisor.image}
                       alt={advisor.name}
                       fill
-                      className="rounded-full object-cover"
-                      sizes="128px"
+                      className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+                      sizes="224px"
                     />
                   </div>
-                  <div className="text-center">
-                    <h4 className="text-xl font-semibold text-white mb-2">{advisor.name}</h4>
-                    <p className="text-orange-500 mb-3">{advisor.role}</p>
-                    <p className="text-gray-400 text-sm">{advisor.bio}</p>
+                  <div className="text-center relative z-10">
+                    <h4 className="text-xl font-semibold text-white mb-1 group-hover:text-orange-400 transition-colors duration-300">{advisor.name}</h4>
+                    <p className="text-orange-500 group-hover:text-orange-300 transition-colors duration-300">{advisor.role}</p>
                   </div>
                 </motion.div>
               ))}
@@ -427,7 +454,9 @@ export default function Home() {
         </motion.section>
 
         {/* Volunteers Section */}
+        {/* 
         <motion.section
+          id="volunteers"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -503,6 +532,7 @@ export default function Home() {
             </div>
           </div>
         </motion.section>
+        */}
 
         {/* Newsletter Section */}
         <motion.section 
